@@ -10,7 +10,8 @@ import java.util.Scanner;
 public class RpsRunner {
     public static void main(String[] args) {
 
-        String choice = "";
+        boolean endGame = false;
+        String readPlayerChoice = "";
         Scanner scanner = new Scanner(System.in);
 
         // getting player name and getting how many points to win
@@ -28,19 +29,19 @@ public class RpsRunner {
         // game menu
         do {
             GameMenu.printMenu();
-            choice = scanner.nextLine();
+            readPlayerChoice = scanner.nextLine();
 
-            if (choice.equals("n")) {
-                if (game.doYouWantToStartNewGame().equals("y")) {
+            if (readPlayerChoice.equals("n")) {
+                if (game.doYouWantToStartNewGame() == true) {
                     game.runGame();
                 }
-            } else if (choice.equals("x")) {
-                if (game.doYouWantToEndTheGame().equals("n")){
-                    choice = "";
+            } else if (readPlayerChoice.equals("x")) {
+                if (game.doYouWantToEndTheGame() == true){
+                    endGame = true;
                 }
             }
 
-        } while (!choice.equals("x"));
+        } while (endGame == false);
 
         scanner.close();
     }

@@ -30,7 +30,7 @@ public class Game {
 
             // if player chose exit the game
             if (choice.equals("x")) {
-                if (doYouWantToEndTheGame().equals("y")) {
+                if (doYouWantToEndTheGame() == true) {
                     winner = "Nobody";
                     break;
                 }
@@ -54,7 +54,7 @@ public class Game {
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
                 this.player.addOneMove();
                 this.computer.addOnePoint();
-                
+
             } else {
                 this.player.addOneMove();
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
@@ -67,18 +67,18 @@ public class Game {
 
 
     // method to confirm that player want to end the game.
-    public String doYouWantToEndTheGame() {
+    public boolean doYouWantToEndTheGame() {
         String yesOrNo = "";
         Scanner scanner = new Scanner(System.in);
 
         System.out.print ("Quit the game ? yes/no ");
         yesOrNo = scanner.nextLine();
 
-        return yesOrNo.equals("y") ? "y" : "n";
+        return yesOrNo.equals("y") ? true : false;
     }
 
     // method to confirm that player want to start a new game.
-    public String doYouWantToStartNewGame() {
+    public boolean doYouWantToStartNewGame() {
         String yesOrNo = "";
         Scanner scanner = new Scanner(System.in);
 
@@ -90,9 +90,9 @@ public class Game {
         if (yesOrNo.equals("y")) {
             this.player.resetGame();
             this.computer.resetGame();
-            return "y";
+            return true;
         } else {
-            return "n";
+            return false;
         }
     }
 }
