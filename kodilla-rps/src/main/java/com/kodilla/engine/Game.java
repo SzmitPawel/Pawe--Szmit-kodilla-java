@@ -74,6 +74,7 @@ public class Game {
 
         System.out.print ("Quit the game ? yes/no ");
         yesOrNo = scanner.nextLine();
+        yesOrNo.toLowerCase();
 
         return yesOrNo.equals("y") ? true : false;
     }
@@ -85,6 +86,7 @@ public class Game {
 
         System.out.print("Do you want to start New Game ? yes/ no ");
         yesOrNo = scanner.nextLine();
+        yesOrNo.toLowerCase();
 
         // if player want to start a new game
         // player and computer scores are resetting
