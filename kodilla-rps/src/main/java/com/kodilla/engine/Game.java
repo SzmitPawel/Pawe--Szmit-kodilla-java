@@ -47,21 +47,24 @@ public class Game {
 
             // winner is player add point and add one move
             if (winner.equals("Player")) {
-                // printing round result
-                GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
                 this.player.addOnePoint();
                 this.player.addOneMove();
 
-            // winner is computer add point
-            } else if (winner.equals("Computer")) {
                 // printing round result
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
+
+            // winner is computer add point add player on move
+            } else if (winner.equals("Computer")) {
                 this.player.addOneMove();
                 this.computer.addOnePoint();
+
+                // printing round result
+                GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
 
             // no winner add one move
             } else {
                 this.player.addOneMove();
+                
                 // printing round result
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
             }
