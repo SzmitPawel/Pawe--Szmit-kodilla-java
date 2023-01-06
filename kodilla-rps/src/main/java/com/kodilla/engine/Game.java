@@ -23,6 +23,7 @@ public class Game {
         String winner = "";
         String readPlayerChoice = "";
 
+        // menu logic
         // printing menu and waiting for player choice, move or exit the game.
         do {
             GameMenu.printGameMenu();
@@ -38,26 +39,30 @@ public class Game {
             }
 
             // getting player choice
-            // scissors, rock or paper
+            // rock, lizard, spock, scissors, paper
             player.setChoiceMove(readPlayerChoice);
 
             // calculate winner
             winner = WhoIsWinner.getWinner(this.player, this.computer);
 
-            // if winner is player add point and add move if computer then add point
-            // printing round result
+            // winner is player add point and add one move
             if (winner.equals("Player")) {
+                // printing round result
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
                 this.player.addOnePoint();
                 this.player.addOneMove();
 
+            // winner is computer add point
             } else if (winner.equals("Computer")) {
+                // printing round result
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
                 this.player.addOneMove();
                 this.computer.addOnePoint();
 
+            // no winner add one move
             } else {
                 this.player.addOneMove();
+                // printing round result
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
             }
         } while (this.player.getScore() < this.player.getPointsToWin() && this.computer.getScore() < this.player.getPointsToWin());

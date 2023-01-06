@@ -16,9 +16,11 @@ public class RpsRunner {
 
         GameMenu.printTitleOfGame();
 
-        // getting player name and getting how many points to win
+        // getting player name
         System.out.print("Enter the Player name: ");
         String playerName = scanner.nextLine();
+
+        // getting how many points to win
         System.out.print("How many points to Win: ");
         int howManyPointsToWin = scanner.nextInt();
         scanner.nextLine();
@@ -31,9 +33,12 @@ public class RpsRunner {
         // game menu
         do {
             GameMenu.printMenu();
+
+            // read player choice
             readPlayerChoice = scanner.nextLine();
             readPlayerChoice.toLowerCase();
 
+            // menu logic
             if (readPlayerChoice.equals("n")) {
                 if (game.doYouWantToStartNewGame() == true) {
                     game.runGame();
