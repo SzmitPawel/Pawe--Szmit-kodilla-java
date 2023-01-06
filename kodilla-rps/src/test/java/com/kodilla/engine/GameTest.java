@@ -41,10 +41,10 @@ class GameTest {
         System.setIn(inputStream);
 
         // when
-        String result = game.doYouWantToEndTheGame();
+        boolean result = game.doYouWantToEndTheGame();
 
         // then
-        assertEquals("y", result);
+        assertTrue(result);
     }
 
     @Test
@@ -59,10 +59,10 @@ class GameTest {
         computer.addOnePoint();
 
         // when
-        String result = game.doYouWantToStartNewGame();
+        boolean result = game.doYouWantToStartNewGame();
 
         // then
-        assertEquals("n", result);
+        assertFalse(result);
         assertEquals(1, player.getScore());
         assertEquals(1, player.getMovements());
         assertEquals(1, computer.getScore());
@@ -80,10 +80,10 @@ class GameTest {
         computer.addOnePoint();
 
         // when
-        String result = game.doYouWantToStartNewGame();
+        boolean result = game.doYouWantToStartNewGame();
 
         // then
-        assertEquals("y", result);
+        assertTrue(result);
         assertEquals(0, player.getScore());
         assertEquals(0, player.getMovements());
         assertEquals(0, computer.getScore());
