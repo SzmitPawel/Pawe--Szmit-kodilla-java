@@ -42,6 +42,8 @@ public class RpsRunner {
                 if (game.doYouWantToEndTheGame() == true){
                     endGame = true;
                 }
+            } else if (readPlayerChoice.equals("r")) {
+                GameMenu.printRulesToWin();
             }
 
         } while (endGame == false);
