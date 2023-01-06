@@ -53,7 +53,7 @@ public class Game {
                 // printing round result
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
 
-            // winner is computer add point add player on move
+            // winner is computer add point add player one move
             } else if (winner.equals("Computer")) {
                 this.player.addOneMove();
                 this.computer.addOnePoint();
@@ -61,10 +61,10 @@ public class Game {
                 // printing round result
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
 
-            // no winner add one move
+            // no winner add player one move
             } else {
                 this.player.addOneMove();
-                
+
                 // printing round result
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
             }
