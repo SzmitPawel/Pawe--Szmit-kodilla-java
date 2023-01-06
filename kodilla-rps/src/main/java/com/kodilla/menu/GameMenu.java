@@ -43,7 +43,7 @@ public class GameMenu {
                 player.getScore()+
                 " score " +
                 player.getMovements()+
-                " Move " +
+                " move " +
                 "     " +
                 " Computer: " +
                 computer.getScore()+

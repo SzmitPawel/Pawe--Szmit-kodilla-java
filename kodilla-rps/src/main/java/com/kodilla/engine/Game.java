@@ -43,17 +43,20 @@ public class Game {
             // calculate winner
             winner = WhoIsWinner.getWinner(this.player, this.computer);
 
-            // if winner is player add point and add move if computer then add points
+            // if winner is player add point and add move if computer then add point
             // printing round result
             if (winner.equals("Player")) {
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
                 this.player.addOnePoint();
                 this.player.addOneMove();
+
             } else if (winner.equals("Computer")) {
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
                 this.player.addOneMove();
                 this.computer.addOnePoint();
+                
             } else {
+                this.player.addOneMove();
                 GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
             }
         } while (this.player.getScore() < this.player.getPointsToWin() && this.computer.getScore() < this.player.getPointsToWin());
