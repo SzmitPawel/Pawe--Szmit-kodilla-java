@@ -81,16 +81,30 @@ class PlayerTest {
     }
 
     @Test
-    void choiceMoveGetAndSet() {
+    void choiceMoveGetAndSetSpock() {
         // give
         Player player = prepareData();
-        player.setChoiceMove("3"); // scissors
+        player.setChoiceMove("3"); // spock
 
         // when
         String result = player.getChoiceMove();
 
         // then
-        assertEquals("scissors", result);
+        assertEquals("spock", result);
+
+    }
+
+    @Test
+    void choiceMoveGetAndSetPaper() {
+        // give
+        Player player = prepareData();
+        player.setChoiceMove("5"); // paper
+
+        // when
+        String result = player.getChoiceMove();
+
+        // then
+        assertEquals("paper", result);
 
     }
 }

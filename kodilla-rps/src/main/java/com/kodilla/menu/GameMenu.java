@@ -16,10 +16,17 @@ public class GameMenu {
     public static void printGameMenu() {
         System.out.println();
         System.out.println("        1 - Rock");
-        System.out.println("        2 - Paper");
-        System.out.println("        3 - Scissors");
+        System.out.println("        2 - Lizard");
+        System.out.println("        3 - Spock");
+        System.out.println("        4 - Scissors");
+        System.out.println("        5 - Paper");
         System.out.println("        x - End the Game" );
         System.out.print("Make your move: ");
+    }
+
+    public static void printTitleOfGame() {
+        System.out.println("              Time to play Rock, Paper, Scissors, Lizard, Spock!");
+        System.out.println();
     }
 
     public static void resultOfGame (final Player player, final Computer computer, final String winner) {

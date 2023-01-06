@@ -44,9 +44,13 @@ public class Player {
         if (checkMenuChoice == 1) {
             this.choiceMove = "rock";
         } else if (checkMenuChoice == 2) {
-            this.choiceMove = "paper";
+            this.choiceMove = "lizard";
         } else if (checkMenuChoice == 3) {
+            this.choiceMove = "spock";
+        } else if (checkMenuChoice == 4) {
             this.choiceMove = "scissors";
+        } else if (checkMenuChoice == 5) {
+            this.choiceMove = "paper";
         } else {
             this.choiceMove = "";
         }

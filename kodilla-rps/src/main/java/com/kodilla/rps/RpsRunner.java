@@ -14,8 +14,9 @@ public class RpsRunner {
         String readPlayerChoice = "";
         Scanner scanner = new Scanner(System.in);
 
+        GameMenu.printTitleOfGame();
+
         // getting player name and getting how many points to win
-        System.out.println("              Time to play Rock, Paper" + "\n");
         System.out.print("Enter the Player name: ");
         String playerName = scanner.nextLine();
         System.out.print("How many points to Win: ");
