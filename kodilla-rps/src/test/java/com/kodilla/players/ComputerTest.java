@@ -10,13 +10,13 @@ class ComputerTest {
     private static int counter = 0;
 
     @BeforeEach
-    public void beforeEach () {
+    public void beforeEach() {
         counter++;
         System.out.println("\n" + "Preparing to execute test #" + counter);
     }
 
     @Test
-    void addOnePoint() {
+    void addOnePointAndGet() {
         // give
         Computer computer = new Computer();
         computer.addOnePoint();
@@ -30,22 +30,8 @@ class ComputerTest {
     }
 
     @Test
-    void getScore() {
-        // give
-        Computer computer = new Computer();
-        computer.addOnePoint();
-        computer.addOnePoint();
-
-        // when
-        int result = computer.getScore();
-
-        // then
-        assertEquals(2, result);
-    }
-
-    @Test
     void resetGame() {
-        //give
+        // give
         Computer computer = new Computer();
         computer.addOnePoint();
 
@@ -54,5 +40,18 @@ class ComputerTest {
 
         // then
         assertEquals(0, computer.getScore());
+    }
+
+    @Test
+    void setChoiceMove() {
+        // give
+        Computer computer = new Computer();
+        computer.setChoiceMove("rock");
+
+        // when
+        String result = computer.getChoiceMove();
+
+        // then
+        assertEquals("rock", result);
     }
 }

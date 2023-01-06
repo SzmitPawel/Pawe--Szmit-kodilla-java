@@ -27,7 +27,7 @@ class PlayerTest {
     }
 
     @Test
-    void addOnePoint() {
+    void addOnePointAndGetScore() {
         // give
         Player player = prepareData();
         player.addOnePoint();
@@ -38,20 +38,6 @@ class PlayerTest {
         // then
         assertEquals(1, result);
 
-    }
-
-    @Test
-    void getScore() {
-        // give
-        Player player = prepareData();
-        player.addOnePoint();
-        player.addOnePoint();
-
-        // when
-        int result = player.getScore();
-
-        // then
-        assertEquals(2, result);
     }
 
     @Test
@@ -67,7 +53,7 @@ class PlayerTest {
     }
 
     @Test
-    void addOneMove() {
+    void addOneMoveAndGet() {
         // give
         Player player = prepareData();
         player.addOneMove();
@@ -77,20 +63,6 @@ class PlayerTest {
 
         // then
         assertEquals(1, result);
-    }
-
-    @Test
-    void getMovements() {
-        // give
-        Player player = prepareData();
-        player.addOneMove();
-        player.addOneMove();
-
-        // when
-        int result = player.getMovements();
-
-        // then
-        assertEquals(2, result);
     }
 
     @Test
@@ -106,5 +78,19 @@ class PlayerTest {
         // then
         assertEquals(0, player.getScore());
         assertEquals(0, player.getMovements());
+    }
+
+    @Test
+    void choiceMoveGetAndSet() {
+        // give
+        Player player = prepareData();
+        player.setChoiceMove("3"); // scissors
+
+        // when
+        String result = player.getChoiceMove();
+
+        // then
+        assertEquals("scissors", result);
+
     }
 }

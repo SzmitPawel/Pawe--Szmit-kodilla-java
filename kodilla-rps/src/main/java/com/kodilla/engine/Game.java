@@ -1,6 +1,5 @@
 package com.kodilla.engine;
 
-import com.kodilla.logic.PlayersChoise;
 import com.kodilla.logic.WhoIsWinner;
 import com.kodilla.menu.GameMenu;
 import com.kodilla.players.Computer;
@@ -12,7 +11,7 @@ public class Game {
     Player player;
     Computer computer;
 
-    public Game(final Player player, final Computer computer) {
+    public Game(Player player, Computer computer) {
         this.player = player;
         this.computer = computer;
     }
@@ -20,9 +19,6 @@ public class Game {
     public void runGame() {
 
         Scanner scanner = new Scanner(System.in);
-
-        String playerChoice = "";
-        String computerChoice = "";
 
         String winner = "";
         String choice = "";
@@ -40,25 +36,25 @@ public class Game {
                 }
             }
 
-            // getting player and computer choice, scissors, rock or paper
-            playerChoice = PlayersChoise.getPlayerChoice(choice);
-            computerChoice = PlayersChoise.getComputerChoice();
+            // getting player choice
+            // scissors, rock or paper
+            player.setChoiceMove(choice);
 
             // calculate winner
-            winner = WhoIsWinner.getWinner(playerChoice, computerChoice);
+            winner = WhoIsWinner.getWinner(this.player, this.computer);
 
             // if winner is player add point and add move if computer then add points
             // printing round result
             if (winner.equals("Player")) {
-                GameMenu.resultOfMove(playerChoice, computerChoice, winner);
+                GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
                 this.player.addOnePoint();
                 this.player.addOneMove();
             } else if (winner.equals("Computer")) {
-                GameMenu.resultOfMove(playerChoice, computerChoice, winner);
+                GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
                 this.player.addOneMove();
                 this.computer.addOnePoint();
             } else {
-                GameMenu.resultOfMove(playerChoice, computerChoice, winner);
+                GameMenu.resultOfMove(this.player.getChoiceMove(), this.computer.getChoiceMove(), winner);
             }
         } while (this.player.getScore() < this.player.getPointsToWin() && this.computer.getScore() < this.player.getPointsToWin());
 
