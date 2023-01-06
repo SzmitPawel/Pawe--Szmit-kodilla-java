@@ -21,15 +21,16 @@ public class Game {
         Scanner scanner = new Scanner(System.in);
 
         String winner = "";
-        String choice = "";
+        String readPlayerChoice = "";
 
         // printing menu and waiting for player choice, move or exit the game.
         do {
             GameMenu.printGameMenu();
-            choice = scanner.nextLine();
+            readPlayerChoice = scanner.nextLine();
+            readPlayerChoice.toLowerCase();
 
             // if player chose exit the game
-            if (choice.equals("x")) {
+            if (readPlayerChoice.equals("x")) {
                 if (doYouWantToEndTheGame() == true) {
                     winner = "Nobody";
                     break;
@@ -38,7 +39,7 @@ public class Game {
 
             // getting player choice
             // scissors, rock or paper
-            player.setChoiceMove(choice);
+            player.setChoiceMove(readPlayerChoice);
 
             // calculate winner
             winner = WhoIsWinner.getWinner(this.player, this.computer);

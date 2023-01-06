@@ -22,7 +22,22 @@ public class WhoIsWinner {
         final double DRAW = 0.5; // 0.25% + 0.25%
         final double WINNING = 0.5; // 1.0% - 0.5% = 0.5%
 
-        // player chose scissors
+        // player chose lizard
+        if (player.getChoiceMove().equals("lizard")) {
+            if (probability <= LOSING) {
+                computer.setChoiceMove("spock");
+                winner = "Player";
+            } else if (probability <= DRAW) {
+                computer.setChoiceMove("lizard");
+                winner = "Nobody!";
+            } else {
+                computer.setChoiceMove("rock");
+                winner = "Computer";
+            }
+        }
+
+
+       /* // player chose scissors
         if (player.getChoiceMove().equals("scissors")) {
             if (probability <= LOSING) {
                 computer.setChoiceMove("paper");
@@ -62,7 +77,7 @@ public class WhoIsWinner {
                 computer.setChoiceMove("scissors");
                 winner = "Computer";
             }
-        }
+        }*/
         return winner;
     }
 }
